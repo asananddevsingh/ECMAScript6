@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Let keyword</title>
+    <script>
+        "use strict";
+
+        (function () {
+            for (var i = 0; i < 5; i++) {
+
+            }
+            console.log('Variable defined with var keyword in for block', i);
+
+            for (let j = 0; j < 5; j++) {
+
+            }
+            /* It will throw an error because the scope of let keyword is limited to the for block.*/
+            console.log('Variable defined with let keyword in for block', j);
+
+        }())
+    </script>
+</head>
+
+<body>
+    <h3>Please see the console to see some of the results.</h3>
+</body>
+
+</html>
