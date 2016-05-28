@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>const keyword</title>
+
+    <script>
+        "use strict";
+        const piConst = 3.141;
+        let piLet = 3.141;
+        var piVar = 3.141;
+
+        console.log('Value of pi defined by const keyword is = ', piConst);
+        console.log('Value of pi defined by let keyword is = ', piLet);
+        console.log('Value of pi defined by var keyword is = ', piVar);
+
+        console.log("**** Modify the variable valules ****");
+
+        /* Re-assigning of const values is not possible. */
+
+        //piConst = 100;
+        piLet = 4;
+        piVar = 14;
+
+        console.log('Value of pi defined by const can not be modified and it is: ', piConst);
+        console.log('Value of pi defined by let is modified to: ', piLet);
+        console.log('Value of pi defined by var is modified to: ', piVar);
+
+    </script>
+</head>
+<body>
+    <h3>const keyword</h3>
+    <p>/* Re-assigning of const values is not possible. */</p>
+    <b>Please see the log to see the result</b>
+</body>
+</html>
