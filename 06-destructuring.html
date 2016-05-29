@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Destructuring</title>
+    <script>
+        var bestSites = ['google', 'facebook', 'twitter', 'amazon', 'linkedin','gmail',
+                         'github'];
+
+        /* Classical way */
+        var f = bestSites[0];
+        var s = bestSites[1];
+        var t = bestSites[2];
+
+        /* ES6 way*/
+
+
+        var [first, second, , fourth, ...rest ] = bestSites;
+        // ...Rest element must be last element in array array.
+        console.log('First: ', first);
+        console.log('Second: ', second);
+        console.log('Fourth: ', fourth);
+        console.log('Rest of the sites:', rest);
+
+        /* Working with array  */
+
+        function doEverythingPossibleWithTwoNumbers (num1, num2){
+            return [num1 + num2, num1*num2, num1/num2, num1%num2, num1 - num2, num1 == num2]
+        }
+
+        var results = doEverythingPossibleWithTwoNumbers(6,2);
+        console.log('Results of operations on two numbers are: ', results);
+
+        /* Working with object  */
+
+        var foods = {
+            burgers: 'McBurgers',
+            coffee: 'Starbucks'
+        }
+
+        var {burgers: myBurgers, coffee } = foods;
+
+        console.log(myBurgers);
+        console.log(coffee);
+
+    </script>
+</head>
+
+<body>
+<h3>Destructuring</h3>
+<p>
+    var bestSites = ['google', 'facebook', 'twitter', 'amazon', 'etc'];
+
+        <br>/* Classical way */
+        <br>var f = bestSites[0];
+        <br>var s = bestSites[1];
+        <br>var t = bestSites[2];
+
+        <br>/* ES6 way*/
+
+        <br>var [first, second, , fourth ] = bestSites;
+        <br>console.log('First: ', first);
+        <br>console.log('Second: ', second);
+        <br>console.log('Fourth: ', fourth);
+</p>
+</body>
+
+</html>
