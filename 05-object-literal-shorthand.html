@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Object Literal Shorthand</title>
+    <script>
+        function MyFoods(fruit, vegitable) {
+            /*return {
+                fruit: fruit,
+                vegitable: vegitable
+            }*/
+
+            /* When the literal and value name is same, we can directly write it only once */
+            return {
+                fruit, vegitable
+            }
+        }
+
+        var myFood = MyFoods('Mango', 'Tomato');
+        console.log('Fruit is: ', myFood.fruit);
+        console.log('Vegitable is: ', myFood.vegitable);
+    </script>
+</head>
+
+<body>
+    <h3> When the literal and value name is same, we can directly write it only once
+            </h3>
+    <p>function MyFoods(fruit, vegitable) {
+        <br> /*return { fruit: fruit, vegitable: vegitable }*/
+        <br> return { fruit, vegitable }
+        <br> }
+    </p>
+</body>
+
+</html>
