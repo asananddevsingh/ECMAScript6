@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rest and spread operators</title>
+    <script>
+
+        var webLanguages = ['JavaScript', 'AngularJS', 'JQuery', 'Bootstrap', 'KnockoutJS'];
+        var serverLanguages = ['C#', 'ASP.Net', 'PHP', 'Java'];
+        var compLanguages = ['C', 'C++'];
+
+        // Classical way
+        var languageStack = [webLanguages, serverLanguages];
+
+        console.log(languageStack);
+
+        // ES6 way
+        languageStack = [...webLanguages, ...serverLanguages];
+        console.log(languageStack);
+
+        /* Push antoher array into it.*/
+
+        languageStack.push(...compLanguages);
+        console.log(languageStack);
+
+        function myFunction (arg1, arg2, ...rest){
+            console.log(rest);   // It will print rest of the arguments i.e. 3,4,5,6
+        }
+
+        myFunction(1,2,3,4,5,6);
+
+    </script>
+</head>
+<body>
+    <h3>See the console for result</h3>
+</body>
+</html>
