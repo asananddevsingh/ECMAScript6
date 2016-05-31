@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Lexical scope</title>
     <script>
-
         /*In clasical way what we can do is, we can pass this of parent function to inner function using a variable*/
         /*function startGame(){
             this.lives = 0; // Ex. var that = this;
@@ -18,7 +18,7 @@
         var mario = new startGame();
         mario.addLive();*/ // This will log NaN
 
-        function startGame(){
+        function startGame() {
             this.lives = 0;
             this.addLife = () => {
                 this.oneup = setInterval(() => {
@@ -29,10 +29,11 @@
 
         var mario = new startGame();
         mario.addLife();
-
     </script>
 </head>
-<body>
 
+<body>
+    <p>Please see the console for result</p>
 </body>
+
 </html>
