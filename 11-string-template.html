@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String template</title>
+    <script>
+
+        /* ` => Symbol is called as backtick or grave accent(`)*/
+        var name = 'ECMAcript6';
+        var helloWorld = `Hey there welcome to ${name}.`;
+        console.log(helloWorld);
+
+        var num1 = 1, num2 = 3;
+        console.log(`Sum of ${num1} and ${num2} is ${num1 + num2}`);
+
+        /* Using functions*/
+        function greet(){
+            return 'Welcome there !';
+        }
+
+        console.log(`${greet()}`);
+
+        /*Using array*/
+        var str = `my sting
+        is really long
+        and i want to break it.`
+
+        console.log(str);
+
+    </script>
+</head>
+<body>
+    <p>please see console for results</p>
+</body>
+</html>
