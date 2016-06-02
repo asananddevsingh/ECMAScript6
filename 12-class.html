@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Class</title>
+    <script>
+        class Shape {
+
+            // It is not possible
+            // this.anyProperty = 1234;//It will throw, Uncaught SyntaxError: Unexpected token .
+            constructor(shapeName, dimensions) {
+                //console.log('Class constructor is called.\n\n');
+                this.allowedShape = ['circle', 'square', 'rectangle'];
+                this.shapeName = shapeName;
+                this.dimesions = dimensions;
+            }
+
+            area() {
+                if (this.validateShape()) {
+                    if (this.shapeName.toLowerCase() === 'circle') {
+                        console.log('Area of circle is: ', Math.PI * this.dimesions[0] * this.dimesions[0]);
+                    } else if (this.shapeName.toLowerCase() === 'square') {
+                        console.log('Area of square is: ', this.dimesions[0] * this.dimesions[0]);
+                    } else if (this.shapeName.toLowerCase() === 'rectangle') {
+                        console.log('Area of rectangle is: ', this.dimesions[0] * this.dimesions[1]);
+                    }
+                } else {
+                    console.log(`Your shape "${this.shapeName}" is not valid.`);
+                }
+            }
+
+            validateShape() {
+                return this.allowedShape.indexOf(this.shapeName) > -1;
+            }
+        }
+
+        var shape = new Shape('circle', [3]);
+        shape.area();
+
+        shape = new Shape('square', [4]);
+        shape.area();
+
+        shape = new Shape('rectangle', [2, 4]);
+        shape.area();
+
+        shape = new Shape('triangle', [4]);
+        shape.area();
+    </script>
+</head>
+
+<body>
+    <h3>Class</h3>
+    <p>see console for results</p>
+    <p>We can't create variable or properties directly at the class level. </p>
+</body>
+
+</html>
