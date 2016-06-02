@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WeakMap</title>
+    <script>
+        class Shape {
+
+            // It is not possible
+            // this.anyProperty = 1234;//It will throw, Uncaught SyntaxError: Unexpected token .
+            constructor(shapeName, dimensions) {
+                //console.log('Class constructor is called.\n\n');
+                this.allowedShape = ['circle', 'square', 'rectangle'];
+                this.shapeName = shapeName;
+                this.dimesions = dimensions;
+            }
+
+            area() {
+                if (this.validateShape()) {
+                    if (this.shapeName.toLowerCase() === 'circle') {
+                        console.log('Area of circle is: ', Math.PI * this.dimesions[0] * this.dimesions[0]);
+                    } else if (this.shapeName.toLowerCase() === 'square') {
+                        console.log('Area of square is: ', this.dimesions[0] * this.dimesions[0]);
+                    } else if (this.shapeName.toLowerCase() === 'rectangle') {
+                        console.log('Area of rectangle is: ', this.dimesions[0] * this.dimesions[1]);
+                    }
+                } else {
+                    console.log(`Your shape "${this.shapeName}" is not valid.`);
+                }
+            }
+
+            validateShape() {
+                return this.allowedShape.indexOf(this.shapeName) > -1;
+            }
+        }
+
+        shape = new Shape('square', [4]);
+        shape.area();
+        shape.shapeName = 'circle'; // This will set the shapeName property of class.
+        console.log('After changing the shapeName property to circle');
+        shape.area(); // now it will print the area of circle rather than rectangle.
+
+        // To get rid of the behavior of public type property.
+
+        var MyShape = (function () {
+
+            let myShapeName = new WeakMap();
+            let myDimensions = new WeakMap();
+            let myAllowedShape = new WeakMap();
+
+                class clShape {
+                constructor(shapeName, dimensions) {
+                    /*this.allowedShape = ['circle', 'square', 'rectangle'];
+                    this.shapeName = shapeName;
+                    this.dimesions = dimensions;*/
+                    myAllowedShape.set(this, ['circle', 'square', 'rectangle']);
+                    myShapeName.set(this, shapeName);
+                    myDimensions.set(this, dimensions);
+                }
+
+                area() {
+                    if (this.validateShape()) {
+                        if (myShapeName.get(this).toLowerCase() === 'circle') {
+                            console.log('Area of circle is: ', Math.PI * myDimensions.get(this)[0] * myDimensions.get(this)[0]);
+                        } else if (myShapeName.get(this).toLowerCase() === 'square') {
+                            console.log('Area of square is: ', myDimensions.get(this)[0] * myDimensions.get(this)[0]);
+                        } else if (myShapeName.get(this).toLowerCase() === 'rectangle') {
+                            console.log('Area of rectangle is: ', myDimensions.get(this)[0] * myDimensions.get(this)[1]);
+                        }
+                    } else {
+                        console.log(`Your shape "${myShapeName.get(this)}" is not valid.`);
+                    }
+                }
+
+                validateShape() {
+                    return myAllowedShape.get(this).indexOf(myShapeName.get(this)) > -1;
+                }
+            }
+            return clShape;
+        }())
+
+        var myShape = new MyShape('square', [4]);
+        myShape.area();
+        myShape.shapeName = 'circle';
+        console.log('Even after changing the shapeName property to circle.');
+        myShape.area();
+    </script>
+</head>
+
+<body>
+    <h3>see console for results</h3>
+    <p>WeakMap allows us to save the data in key value pair.</p>
+</body>
+
+</html>
