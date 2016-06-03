@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inheritance </title>
+    <script>
+        class myColors {
+
+            constructor() {
+                console.log('Parent class constructor is called.')
+            }
+
+            getRandomColor() {
+                var colors = ['red', 'blue', 'green', 'yellow', 'pink', 'brown', 'black'];
+                return colors[Math.floor(Math.random() * 7)];
+            }
+        }
+
+        class Shape extends myColors {
+
+            constructor(shapeName, dimensions) {
+                super();
+                //console.log('Class constructor is called.\n\n');
+                this.allowedShape = ['circle', 'square', 'rectangle'];
+                this.shapeName = shapeName;
+                this.dimesions = dimensions;
+            }
+
+            drawShape() {
+                if (this.validateShape()) {
+                    if (this.shapeName.toLowerCase() === 'circle') {
+                        document.write('<div style="height:' + this.dimesions[0] + 'px;width:' + this.dimesions[0] + 'px;border-radius:50%;background:' + super.getRandomColor() + '"></div>')
+                    } else if (this.shapeName.toLowerCase() === 'square') {
+                        document.write('<div style="height:' + this.dimesions[0] + 'px;width:' + this.dimesions[0] + 'px;background:' + super.getRandomColor() + '"></div>')
+                    } else if (this.shapeName.toLowerCase() === 'rectangle') {
+                        document.write('<div style="height:' + this.dimesions[0] + 'px;width:' + this.dimesions[1] + 'px;background:' + super.getRandomColor() + '"></div>')
+                    }
+                } else {
+                    console.log(`Your shape "${this.shapeName}" is not valid.`);
+                }
+            }
+
+            validateShape() {
+                return this.allowedShape.indexOf(this.shapeName) > -1;
+            }
+        }
+
+        var shape = new Shape('circle', [100]);
+        shape.drawShape();
+
+        shape = new Shape('square', [100]);
+        shape.drawShape();
+
+        shape = new Shape('rectangle', [100, 200]);
+        shape.drawShape();
+
+        shape = new Shape('triangle', [4]);
+        shape.drawShape();
+    </script>
+</head>
+
+<body>
+    <h2>Please see console for some results.</h2>
+</body>
+
+</html>
